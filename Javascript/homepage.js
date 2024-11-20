@@ -1,6 +1,6 @@
 const cardRow = document.querySelector(".products .container .row");
 const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiYTlkYmRkMDNhNjAwMTUwOWJhNTMiLCJpYXQiOjE3MzIwODczMzEsImV4cCI6MTczMzI5NjkzMX0.QI7nwob-4zyZTuzb_9xTPit_Ymm6Fxe1oBYwla-THjs";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiYTlkYmRkMDNhNjAwMTUwOWJhNTMiLCJpYXQiOjE3MzIwOTAzNzEsImV4cCI6MTczMzI5OTk3MX0.KbskWm5CKrW4GG7QJQm0ZBvoEzMTIAVLfe4qT5lqdDM";
 
 const handlePhoneApi = () => {
   fetch("https://striveschool-api.herokuapp.com/api/product/", {
@@ -16,23 +16,24 @@ const handlePhoneApi = () => {
       }
     })
     .then((phones) => {
-      // Cicla attraverso tutti gli elementi ricevuti
+      // Cicla tutti gli elementi ricevuti
       phones.forEach((phone) => {
         console.log(phone);
         const col = document.createElement("div");
         col.className = "col-md-4";
+        col.id = `col${phone._id}`;
         col.innerHTML = `
         
         <div class="card mb-4 shadow-sm">
-                <img src=${phone.imageUrl} class="imgDim card-img-top" />
+                <img src=${phone.imageUrl} class="imgDim card-img-top mt-3" />
                 <div class="card-body">
                   <h5 class="card-title">${phone.name}</h5>
                   <p class="card-text">
                         ${phone.description}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <button type="button" id = "details" class="btn btn-sm btn-outline-secondary">Details</button>
+                      <button type="button" id = "${phone._id}"  onclick = deleteCard(event) class="btn btn-sm btn-outline-secondary">Delete</button>
                     </div>
                     <small class="text-muted">${phone.brand}</small>
                     <small class="text-muted">${phone.price + "$"}</small>
@@ -44,6 +45,12 @@ const handlePhoneApi = () => {
         
         `;
         cardRow.appendChild(col);
+
+        const detailsBtn = document.getElementById("details");
+
+        detailsBtn.addEventListener("click", () => {
+          window.location.href = "../details.html";
+        });
       });
     })
     .catch((error) => {
@@ -57,11 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const newPhone = sessionStorage.getItem("newPhone");
 
   if (newPhone) {
-    const phone = JSON.parse(newPhone); // Convertiamo il JSON in un oggetto JavaScript
+    const phone = JSON.parse(newPhone); // JSON in un oggetto JavaScript
 
-    // Creiamo una nuova colonna per la card
+    //nuova colonna per la card generate dinamicamente dall'input
+
     const col = document.createElement("div");
     col.className = "col-12 col-md-4";
+
+    col.id = `col${phone._id}`;
 
     col.innerHTML = `
     
@@ -72,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="card-text">${phone.description}</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              <button type="button" id = "details" class="btn btn-sm btn-outline-secondary">Details</button>
+              <button type="button" id = "${phone._id}"  onclick = deleteCard(event) class="btn btn-sm btn-outline-secondary">Delete</button>
             </div>
             <small class="text-muted">${phone.brand}</small>
             <small class="text-muted">${phone.price + "$"}</small>
@@ -88,3 +98,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   handlePhoneApi();
 });
+
+const deleteCard = (event) => {
+  console.log(event);
+
+  fetch(`https://striveschool-api.herokuapp.com/api/product/${event.target.id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + token
+    }
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        alert("Prodotto eliminato con successo!");
+
+        const col = document.getElementById(`col${event.target.id}`);
+        col.remove();
+      } else {
+        throw new Error("Errore nell'eliminazione del prodotto");
+      }
+    })
+    .catch((error) => console.error("Errore:", error));
+};

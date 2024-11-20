@@ -1,6 +1,6 @@
 const submitBtn = document.getElementById("submitBtn");
 const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiYTlkYmRkMDNhNjAwMTUwOWJhNTMiLCJpYXQiOjE3MzIwODczMzEsImV4cCI6MTczMzI5NjkzMX0.QI7nwob-4zyZTuzb_9xTPit_Ymm6Fxe1oBYwla-THjs";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiYTlkYmRkMDNhNjAwMTUwOWJhNTMiLCJpYXQiOjE3MzIwOTAzNzEsImV4cCI6MTczMzI5OTk3MX0.KbskWm5CKrW4GG7QJQm0ZBvoEzMTIAVLfe4qT5lqdDM";
 
 submitBtn.addEventListener("click", function () {
   // Raccogliamo i dati dal form
