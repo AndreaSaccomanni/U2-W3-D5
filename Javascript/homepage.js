@@ -142,7 +142,6 @@ const editPage = (event) => {
   // Ottieni l'URL corrente
   const url = new URL(window.location);
 
-  // Modifica o aggiungi il parametro "page"
   url.searchParams.set("id", event.target.id);
 
   const newUrl = "../edit.html?" + url.searchParams;
