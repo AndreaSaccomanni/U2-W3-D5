@@ -32,7 +32,8 @@ const handlePhoneApi = () => {
                         ${phone.description}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" id = "details" class="btn btn-sm btn-outline-secondary">Details</button>
+                      <button type="button" id = "${phone._id}" onclick = editPage(event) class="btn btn-sm btn-outline-secondary px-3">Edit</button>
+                      <button type="button" id = "${phone._id}" onclick = detailsPage(event) class="btn btn-sm btn-outline-secondary">Details</button>
                       <button type="button" id = "${phone._id}"  onclick = deleteCard(event) class="btn btn-sm btn-outline-secondary">Delete</button>
                     </div>
                     <small class="text-muted">${phone.brand}</small>
@@ -47,10 +48,6 @@ const handlePhoneApi = () => {
         cardRow.appendChild(col);
 
         const detailsBtn = document.getElementById("details");
-
-        detailsBtn.addEventListener("click", () => {
-          window.location.href = "../details.html";
-        });
       });
     })
     .catch((error) => {
@@ -82,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="card-text">${phone.description}</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <button type="button" id = "details" class="btn btn-sm btn-outline-secondary">Details</button>
+              <button type="button" id = "${phone._id}" onclick = detailsPage(event) class="btn btn-sm btn-outline-secondary">Details</button>
               <button type="button" id = "${phone._id}"  onclick = deleteCard(event) class="btn btn-sm btn-outline-secondary">Delete</button>
             </div>
             <small class="text-muted">${phone.brand}</small>
@@ -91,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
     `;
-    cardRow.appendChild(col);
 
     sessionStorage.removeItem("newPhone");
   }
@@ -109,14 +105,48 @@ const deleteCard = (event) => {
     }
   })
     .then((resp) => {
-      if (resp.ok) {
-        alert("Prodotto eliminato con successo!");
+      if (confirm("Sei sicuro di voler eliminare questo elemento?")) {
+        if (resp.ok) {
+          alert("Prodotto eliminato con successo!");
 
-        const col = document.getElementById(`col${event.target.id}`);
-        col.remove();
-      } else {
-        throw new Error("Errore nell'eliminazione del prodotto");
+          const col = document.getElementById(`col${event.target.id}`);
+          col.remove();
+        } else {
+          throw new Error("Errore nell'eliminazione del prodotto");
+        }
       }
     })
     .catch((error) => console.error("Errore:", error));
+};
+
+const detailsPage = (event) => {
+  console.log(event);
+
+  console.log(window.location);
+  // Ottieni l'URL corrente
+  const url = new URL(window.location);
+
+  // Modifica o aggiungi il parametro "page"
+  url.searchParams.set("id", event.target.id);
+
+  const newUrl = "../details.html?" + url.searchParams;
+
+  // Aggiorna l'URL e ricarica la pagina
+  window.location.href = newUrl;
+};
+
+const editPage = (event) => {
+  console.log(event);
+
+  console.log(window.location);
+  // Ottieni l'URL corrente
+  const url = new URL(window.location);
+
+  // Modifica o aggiungi il parametro "page"
+  url.searchParams.set("id", event.target.id);
+
+  const newUrl = "../edit.html?" + url.searchParams;
+
+  // Aggiorna l'URL e ricarica la pagina
+  window.location.href = newUrl;
 };

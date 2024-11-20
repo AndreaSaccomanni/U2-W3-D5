@@ -1,0 +1,5 @@
+.imgDim {
+  height: 500px !important;
+  width: auto;
+  object-fit: contain;
+}
