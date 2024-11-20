@@ -3,7 +3,7 @@ const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiYTlkYmRkMDNhNjAwMTUwOWJhNTMiLCJpYXQiOjE3MzIwOTAzNzEsImV4cCI6MTczMzI5OTk3MX0.KbskWm5CKrW4GG7QJQm0ZBvoEzMTIAVLfe4qT5lqdDM";
 
 submitBtn.addEventListener("click", function () {
-  // Raccogliamo i dati dal form
+  // Raccolgo i dati dal form
   const name = document.getElementById("name").value;
   const description = document.getElementById("description").value;
   const brand = document.getElementById("brand").value;
