@@ -14,3 +14,22 @@ h1 {
   width: auto;
   object-fit: contain;
 }
+
+body {
+  font-family: "Noto", sans-serif;
+  background: rgb(25, 25, 25);
+  background: linear-gradient(0deg, rgba(25, 25, 25, 1) 0%, rgba(201, 197, 197, 1) 100%);
+}
+
+.phoneStore {
+  color: rgb(191, 196, 204);
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}

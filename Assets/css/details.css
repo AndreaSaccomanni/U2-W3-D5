@@ -3,3 +3,20 @@
   width: auto;
   object-fit: contain;
 }
+
+body {
+  font-family: "Noto", sans-serif;
+}
+
+.phoneStore {
+  color: rgb(191, 196, 204);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.spanEdit {
+  color: rgb(71, 64, 64);
+}

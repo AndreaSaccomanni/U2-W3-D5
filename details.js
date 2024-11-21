@@ -31,12 +31,15 @@ const getNewId = (id) => {
 const generateDetails = (data) => {
   const element = document.getElementById("element");
   element.innerHTML = `
-        <div class="row mt-4">
+        <div class="row d-flex ">
             <div class="col-12 col-sm-8 col-md-6 mx-auto">
-                <h3 class="text-center text-dark mb-3">${data.name}</h3>
-                <img src="${data.imageUrl}" alt="${data.name}" class=" imgDim img-fluid rounded shadow-sm mb-3">
-                <p><strong class="text-muted">Description:</strong> ${data.description}</p>
-                <p><strong class="text-muted">Price:</strong> <span class="text-success">${data.price + "$"}</span></p>
+            <img src="${data.imageUrl}" alt="${data.name}" class=" imgDim img-fluid ms-4 ">
+         </div>
+        <div class="col-12 col-sm-8 col-md-6 ">
+                <h3 class=" text-dark mb-3 fs-1">${data.name}</h3>
+                <p><strong class="text-dark fs-3">Description:</strong><span class="spanEdit fs-4"> ${data.description}</span></p>
+                <p><strong class="text-dark fs-3">Brand:</strong> <span class="spanEdit fs-4">${data.brand}</span></p>
+                <p><strong class="text-dark fs-3">Price:</strong> <span class="spanEdit fs-4">${data.price + "$"}</span></p>
             </div>
         </div>
     `;
