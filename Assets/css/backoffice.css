@@ -4,3 +4,6 @@ body {
   background: rgb(25, 25, 25);
   background: linear-gradient(0deg, rgba(25, 25, 25, 1) 0%, rgba(201, 197, 197, 1) 100%);
 }
+a {
+  text-decoration: none;
+}

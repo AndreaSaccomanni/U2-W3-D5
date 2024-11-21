@@ -26,6 +26,9 @@
             color:rgb(71, 64, 64)
 
         }
+        a {
+  text-decoration: none;
+}
     </style>
   </head>
   <body style="background: rgb(255, 255, 255); background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(110, 111, 111, 1) 100%); font-family: Noto, sans-serif;"">
@@ -43,9 +46,9 @@
                 </svg>
               </a>
             </div>
-            <div>
-              <p class="phoneStore fs-1 mt-2" style="color: rgb(191, 196, 204)">Phone Store</p>
-            </div>
+            <a href="./homepage.html">
+                <p class="phoneStore fs-1 mt-2" style="color: rgb(191, 196, 204)">Phone Store</p>
+              </a>
           </div>
           <button
             class="navbar-toggler"
@@ -59,13 +62,13 @@
           </button>
           <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">All pages</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./homepage.html">Home</a>
+                <h5 class="offcanvas-title fs-3" id="offcanvasDarkNavbarLabel">All pages</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <a class="nav-link fs-4" aria-current="page" href="./homepage.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./backoffice.html">Add your phone</a>
