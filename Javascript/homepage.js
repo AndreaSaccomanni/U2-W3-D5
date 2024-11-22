@@ -149,3 +149,7 @@ const editPage = (event) => {
   // Aggiorna l'URL e ricarica la pagina
   window.location.href = newUrl;
 };
+
+setTimeout(() => {
+  document.body.classList.remove("loading"), 3000;
+});
