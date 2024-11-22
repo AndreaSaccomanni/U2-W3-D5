@@ -33,8 +33,8 @@ const handlePhoneApi = () => {
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" id = "${phone._id}" onclick = editPage(event) class="btn btn-sm btn-outline-secondary px-3">Edit</button>
-                      <button type="button" id = "${phone._id}" onclick = detailsPage(event) class="btn btn-sm btn-outline-secondary">Details</button>
-                      <button type="button" id = "${phone._id}"  onclick = deleteCard(event) class="btn btn-sm btn-outline-secondary">Delete</button>
+                      <button type="button" id = "${phone._id}" onclick = detailsPage(event) class=" details btn btn-sm btn-outline-secondary">Details</button>
+                      <button type="button" id = "${phone._id}"  onclick = deleteCard(event) class="details btn btn-sm btn-outline-secondary">Delete</button>
                     </div>
                     <small class="text-muted">${phone.brand}</small>
                     <small class="text-muted">${phone.price + "$"}</small>
@@ -77,10 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="card-body">
           <h5 class="card-title">${phone.name}</h5>
           <p class="card-text">${phone.description}</p>
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex justify-content-between align-items-center flex-wrap">
             <div class="btn-group">
-              <button type="button" id = "${phone._id}" onclick = detailsPage(event) class="btn btn-sm btn-outline-secondary">Details</button>
-              <button type="button" id = "${phone._id}"  onclick = deleteCard(event) class="btn btn-sm btn-outline-secondary">Delete</button>
+              <button type="button" id = "${phone._id}" onclick = detailsPage(event) class="details btn btn-sm btn-outline-secondary">Details</button>
+              <button type="button" id = "${phone._id}"  onclick = deleteCard(event) class="details btn btn-sm btn-outline-secondary">Delete</button>
             </div>
             <small class="text-muted">${phone.brand}</small>
             <small class="text-muted">${phone.price + "$"}</small>

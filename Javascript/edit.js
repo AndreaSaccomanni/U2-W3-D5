@@ -52,7 +52,7 @@ const generateDetails = (data) => {
 
         <!-- Input Fields -->
         <div class="col-md-6">
-            <h3 class="text-center text-dark mb-3 fs-1">${data.name}</h3>
+            <h3 class="text-center text-dark mb-0 fs-1">${data.name}</h3>
             <div class="mb-3">
                 <label for="name" class="form-label fs-5">Model:</label>
                 <input type="text" class="form-control" id="name" value="${data.name}" required />
@@ -74,7 +74,7 @@ const generateDetails = (data) => {
                 <input type="number" class="form-control" id="price" value="${data.price}" required />
             </div>
             <div class="d-flex justify-content-center">
-                <button type="button" id="editBtn" onclick="editBtn()" class="btn btn-dark px-4">Edit</button>
+                <button type="button" id="editBtn" onclick="editBtn()" class="btn btn-dark px-4 mb-4">Edit</button>
             </div>
         </div>
     </div>

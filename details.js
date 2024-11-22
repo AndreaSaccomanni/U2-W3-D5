@@ -37,7 +37,7 @@ const generateDetails = (data) => {
          </div>
         <div class="col-12 col-sm-8 col-md-6 ">
                 <h3 class=" text-dark mb-3 fs-1">${data.name}</h3>
-                <p><strong class="text-dark fs-3">Description:</strong><span class="spanEdit fs-4"> ${data.description}</span></p>
+                <p><strong class="text-dark fs-3">Description:<br/></strong><span class="spanEdit fs-4"> ${data.description}</span></p>
                 <p><strong class="text-dark fs-3">Brand:</strong> <span class="spanEdit fs-4">${data.brand}</span></p>
                 <p><strong class="text-dark fs-3">Price:</strong> <span class="spanEdit fs-4">${data.price + "$"}</span></p>
             </div>
